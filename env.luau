@@ -6,15 +6,30 @@ type ENV = {
 		info:
 			((thread: thread, level: number, options: string) -> ...any)
 			& ((functionOrLevel: function | number, options: string) -> ...any),
-		getinfo: ((thread: thread, level: number, options: string) -> ...any)
-		& ((functionOrLevel: function | number, options: string) -> ...any),
-		validlevel: (level: number) -> ();
+		getinfo: 
+			((thread: thread, level: number, options: string) -> ...any)
+			& ((functionOrLevel: function | number, options: string) -> ...any),
+		validlevel: (level: number) -> boolean,
 		traceback:
 			((level: number?) -> string)
 			& ((message: string, level: number?) -> string)
 			& ((thread: thread, message: string, level: number?) -> string),
+		getconstants: (function: function) -> (),
+		getproto: (function: function, index: number) -> (),
+		getfenv: ((functionOrLevel: function | number) -> ...any),
+		setmetatable: (table: table, metatable: table | nil) -> table,
+		getmetatable: (t: table) -> table?,
+		getupvalues: (function: function) -> table,
+		getprotos: (function: function) -> table,
+		loadmodule: (script: any) -> (), 
+		getupvalue: (function: function, index: number) -> any,
+		getconstant: (function: function, index: number) -> any,
+		setconstant: (function: function, index: number, value: any) -> (),
+		setstack: (stack: number, index: number, value: any) -> ()
+		getstack: (stack: number, index: number) -> any
 		profilebegin: (label: string) -> (),
 		profileend: () -> (),
+		getregistry: () -> (),
 		setmemorycategory: (tag: string) -> (),
 		resetmemorycategory: () -> (),
 	},
@@ -191,6 +206,14 @@ type ENV = {
 	delay: (delayTime: number?, callback: function) -> (),
 	script: LuaSourceContainer,
 	assert: (value: any, errorMessage: string?) -> any,
+	syn_websocket_close: () -> (),
+	firesignal: (signal: any) -> (),
+	makefolder: (name: string) -> (),
+	syn_io_append: (file: string, data: string) -> (),
+	is_protosmasher_caller: () -> boolean,
+	clonefunction: (function: function) -> function,
+	setrawmetatable: (table: table, metatable: table | nil) -> table,
+	syn_mouse2press: () -> (),
 }
 
 type DateTypeArg = {
