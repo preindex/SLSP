@@ -9,7 +9,7 @@
 
 ## How to install
 > ### library.lua
-> First, navigate towards the `.vscode\extensions\` folder, and look for the Roblox LSP extension (should look like `nightrains.robloxlsp-VERSION`)\
+> First, navigate towards the `C:\Users\YOURPROFILE\.vscode\extensions\` folder, and look for the Roblox LSP extension (should look like `nightrains.robloxlsp-VERSION`)\
 > After this, enter the folder and look go to `server --> locale --> en-us`\
 > Once there, replace the `library.lua` file with the one this GitHub. Done!
 
